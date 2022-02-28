@@ -7,9 +7,9 @@ from stripe.error import InvalidRequestError
 import environ
 import courses.models
 
-env = environ.Env()
-environ.Env.read_env()
-stripe.api_key = env.str('STRIPE_API_KEY')
+#env = environ.Env()
+#environ.Env.read_env()
+#stripe.api_key = env.str('STRIPE_API_KEY')
 
 
 class ZappyUser(AbstractUser):

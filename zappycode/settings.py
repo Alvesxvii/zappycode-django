@@ -263,10 +263,10 @@ if DEBUG:
 else:
     PAYPAL_MODE = 'live'
 
-paypalrestsdk.configure({
-  'mode': PAYPAL_MODE, #sandbox or live
-  'client_id': env.str('PAYPAL_CLIENT_ID'),
-  'client_secret': env.str('PAYPAL_SECRET') })
+#paypalrestsdk.configure({
+#  'mode': PAYPAL_MODE, #sandbox or live
+#  'client_id': env.str('PAYPAL_CLIENT_ID'),
+#  'client_secret': env.str('PAYPAL_SECRET') })
 
 
 # Internationalization

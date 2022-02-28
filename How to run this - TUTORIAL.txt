@@ -1,0 +1,54 @@
+### This is a quick reminder of how to run this application ###
+
+For me as a beginner and python enthusiast, it was quite hard and confused to get this thing going.
+It was raising an exception in stripe.api_key = env.str('STRIPE_API_KEY') from Models of sitewide.
+Console was outputing: django.core.exceptions.ImproperlyConfigured: Set the STRIPE_API_KEY environment variable
+So I went ahead and add a comment:
+
+#env = environ.Env()
+#environ.Env.read_env()
+#stripe.api_key = env.str('STRIPE_API_KEY')
+
+----
+
+Also there were changes to be made into settings.py inlines:
+
+266 #paypalrestsdk.configure({
+267 #  'mode': PAYPAL_MODE, #sandbox or live
+268 #  'client_id': env.str('PAYPAL_CLIENT_ID'),
+269 #  'client_secret': env.str('PAYPAL_SECRET') })
+
+
+
+###############################################################
+
+------ Now a quick reminder of how to set up this thing on Windows if I ever have to stash everything and get it from the scratch all over again through this GitHub repositary I created to storage the files as a backup and some sort of source to study the code and make some implementations ------
+
+-> git clone https://github.com/Alvesxvii/zappycode-django.git # We cannot clone the original origin of the sourcecode because we won't have permission to commit changes in the code. We must follow the Fork-and-Branch Github Workflow and make a branch of the original repository (the one forked), then clone our own branch to save up files locally. Then we can initiate a 'git init' on it or we can 'git remote add upstream https://LINK-TO-ORIGINAL-REPOSITORY'
+
+-> python -m venv zappyvenv # To create a virtual enviroment where we are gonna install all the dependencies of python in it's respectives versions... for example: python3.18, django-allauth==0.44.0, django-celery-email==3.0.0, django-celery-results==2.0.1 and etc.. This avoids conflicts when shifting among different projects running different versions of the same libraries.
+
+-> zappyvenv\Scripts\activate.bat # Inside the directory where the virtual enviroment was installed, I shall execute activate.bat to enter zappyvenv. This is the path on Windows.
+
+Until here, everything could be done through the CMD Prompt. But from now on, at least what worked with me at first time, was to move to PyCharm Terminal and enter zappyvenv there too. Then next thing we're gonna do is:
+Inside PyCharm, go to: zappycode-django > Double click on manage.py > Right close to the "Play" button to run, select "manage" and click edit configurations > Set zappyvenv as the python interpreter > Apply > Ok. Then go back to Terminal and enter:
+
+-> python -m pip install -r requirements.txt
+
+Then, put a comment on Models from sitewide as mentioned above to skip console error and be able to run the server.
+
+-> python manage.py makemigrations
+
+-> python manage.py migrate
+
+-> python manage.py runserver
+
+Then hit: https://localhost:8000/ in the toolbar of the browser.
+
+
+###################################################################################################################################
+
+This was a very complete quick reminder of how to set up this website in my computer making it run, so that if oneday I come back from years without having a look on it, I can easily remember the steps, because it took me quite sometime to get things going in it's first time... also, as I said, if ever mess up things big time I can delete everything and start once again with no problems to set it up all over again and waste a hell of my time to do it.
+
+
+
